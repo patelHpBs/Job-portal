@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import React from "react";
 import styled from "@emotion/styled";
 import {
   Box,
@@ -34,14 +33,14 @@ const JobDescription = styled(Typography)`
   color: #666;
 `;
 
-const JobButton = styled(Button)`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-`;
+// const JobButton = styled(Button)`
+//   position: absolute;
+//   bottom: 20px;
+//   left: 50%;
+//   transform: translateX(-50%);
+// `;
 
-const JobCards = () => {
+const JobCards = ({jobName,description,logo,role,location}) => {
   return (
     <JobCardContainer>
       <JobCardContent>
@@ -63,24 +62,20 @@ const JobCards = () => {
           >
             <img
               alt="Remy Sharp"
-              src="https://give.do/static/img/logos/19WJ/9aad65c4-4ada-437d-a056-cd099c1e88ef.png"
+              src={logo}
               style={{ width: "100%", height: "100%", objectFit: "content" }}
             />
           </Box>
           <Box sx={{ textAlign: "left", flex: 1 }}>
-            <Typography>Company NAme</Typography>
-            <Typography>Backend Engineer</Typography>
-            <Typography>Banglore</Typography>
+            <Typography>{jobName}</Typography>
+            <Typography>{role}</Typography>
+            <Typography>{location}</Typography>
           </Box>
         </Box>
         <JobTitle>Estimated Salary: </JobTitle>
 
         <JobDescription>
-          FamPay is building India's first neo-bank exclusively for teens.
-          FamPay helps teens make their own online and offline payments through
-          UPI, FamPay App and FamCard. FamPay is building India's first neo-bank
-          exclusively for teens. FamPay helps teens make their own online and
-          offline payments through UPI, FamPay App and FamCard.
+         {description}
         </JobDescription>
         {/* <JobButton color="primary" fullWidth className="button-container">
           <Box className="view-job">View Job</Box>

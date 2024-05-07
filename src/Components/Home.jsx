@@ -37,9 +37,15 @@ export const Home = () => {
         // spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {jobData?.map((val, index) => (
-          <Grid item xs={2} sm={4} md={3} key={index}>
-            <JobCards />
+        {jobData?.map((val) => (
+          <Grid item xs={2} sm={4} md={3} key={val.jdUid}>
+            <JobCards
+              logo={val.logoUrl}
+              location={val.location}
+              jobName={val.companyName}
+              role={val.jobRole}
+              description={val.jobDetailsFromCompany}
+            />
           </Grid>
         ))}
       </Grid>
